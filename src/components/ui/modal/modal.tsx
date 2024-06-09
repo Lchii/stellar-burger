@@ -5,13 +5,19 @@ import styles from './modal.module.css';
 import { CloseIcon } from '@zlden/react-developer-burger-ui-components';
 import { TModalUIProps } from './type';
 import { ModalOverlayUI } from '@ui';
+import clsx from 'clsx';
 
 export const ModalUI: FC<TModalUIProps> = memo(
-  ({ title, onClose, children }) => (
+  ({ title, textStyle, onClose, children }) => (
     <>
       <div className={styles.modal}>
         <div className={styles.header}>
-          <h3 className={`${styles.title} text text_type_main-large`}>
+          <h3
+            className={clsx('text', {
+              [`text_type_${textStyle}`]: textStyle,
+              [`text_type_main-large`]: !textStyle
+            })}
+          >
             {title}
           </h3>
           <button className={styles.button} type='button'>

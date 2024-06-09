@@ -16,6 +16,10 @@ export type TConstructorIngredient = TIngredient & {
   id: string;
 };
 
+export type TMovableConstructorIngredient = TConstructorIngredient & {
+  direction: MovementDirection;
+};
+
 export type TOrder = {
   _id: string;
   status: string;
@@ -38,3 +42,8 @@ export type TUser = {
 };
 
 export type TTabMode = 'bun' | 'sauce' | 'main';
+
+export enum MovementDirection {
+  UP,
+  DOWN
+}
