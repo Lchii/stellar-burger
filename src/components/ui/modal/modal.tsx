@@ -10,7 +10,7 @@ import clsx from 'clsx';
 export const ModalUI: FC<TModalUIProps> = memo(
   ({ title, textStyle, onClose, children }) => (
     <>
-      <div className={styles.modal}>
+      <div className={styles.modal} data-cy='modal'>
         <div className={styles.header}>
           <h3
             className={clsx('text', {
@@ -20,7 +20,11 @@ export const ModalUI: FC<TModalUIProps> = memo(
           >
             {title}
           </h3>
-          <button className={styles.button} type='button'>
+          <button
+            className={styles.button}
+            type='button'
+            data-cy='close-button'
+          >
             <CloseIcon type='primary' onClick={onClose} />
           </button>
         </div>
