@@ -1,7 +1,7 @@
 describe('действия неавторизованного пользователя', () => {
   beforeEach(() => {
     cy.intercept('GET', 'api/ingredients', { fixture: 'ingredients.json' });
-    cy.visit('http://localhost:4000');
+    cy.visit('/');
   });
   describe('добавление ингредиентов в конструктор', () => {
     it('добавление булок', () => {
@@ -51,7 +51,7 @@ describe('действия авторизованного пользовател
       'accessToken',
       'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzE3ZTA1ODU2Nzc3MDAxYmIxYmQxOSIsImlhdCI6MTcxODcxMzg2MSwiZXhwIjoxNzE4NzE1MDYxfQ.sR_uJsvlq4EL72ka0pJ3FTwGzoeVwoj-w_ZSdXz0m3w'
     );
-    cy.visit('http://localhost:4000');
+    cy.visit('/');
   });
   describe('тест заказа', () => {
     it('создание заказа', () => {
